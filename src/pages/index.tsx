@@ -52,25 +52,27 @@ export default function Home() {
   };
 
   return (
-    <div className="flex items-center p-4 mx-auto min-h-screen justify-center bg-purple-500">
+    <div className="font-jetbrains flex items-center p-4 mx-auto min-h-screen justify-center bg-purple-500">
+      
       <main className="gap-4 flex flex-col items-center justify-center w-full h-full">
+      <h1 className="text-sm">Boring Trollbox</h1>
         {!chosenUsername ? (
           <>
-            <h3 className="font-bold text-white text-xl">
+            <h3 className="text-xs">
               How people should call you?
             </h3>
             <input
               type="text"
-              placeholder="Identity..."
+              placeholder="anon..."
               value={username}
-              className="p-3 rounded-md outline-none"
+              className="p-3 rounded-md border border-gray-lightest"
               onChange={(e) => setUsername(e.target.value)}
             />
             <button
               onClick={() => {
                 setChosenUsername(username);
               }}
-              className="bg-white rounded-md px-4 py-2 text-xl"
+              className="relative block w-full rounded-lg text-boring-black dark:text-boring-white p-12 text-center hover:border-gray dark:hover:border-gray focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               Go!
             </button>
@@ -85,7 +87,7 @@ export default function Home() {
                 {messages.map((msg, i) => {
                   return (
                     <div
-                      className="w-full py-1 px-2 border-b border-gray-200"
+                      className="w-full py-1 px-2 border-b border-gray-lightest"
                       key={i}
                     >
                       {msg.author} : {msg.message}
@@ -93,7 +95,7 @@ export default function Home() {
                   );
                 })}
               </div>
-              <div className="border-t border-gray-300 w-full flex rounded-bl-md">
+              <div className="border-t border-gray-lightest w-full flex rounded-bl-md">
                 <input
                   type="text"
                   placeholder="New message..."
@@ -102,14 +104,14 @@ export default function Home() {
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyUp={handleKeypress}
                 />
-                <div className="border-l border-gray-300 flex justify-center items-center  rounded-br-md group hover:bg-purple-500 transition-all">
+                <div className="border-l border-gray-lightest flex justify-center items-center  rounded-br-md group hover:bg-purple-500 transition-all">
                   <button
-                    className="group-hover:text-white px-3 h-full"
+                    className="group-hover:text-gray px-3 h-full"
                     onClick={() => {
                       sendMessage();
                     }}
                   >
-                    Send
+                    troll
                   </button>
                 </div>
               </div>
