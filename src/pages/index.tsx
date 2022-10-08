@@ -59,23 +59,27 @@ export default function Home() {
         {!chosenUsername ? (
           <>
             <h3 className="text-xs">
-              How people should call you?
+              Who are you?
             </h3>
+            <form>
             <input
               type="text"
               placeholder="anon..."
               value={username}
-              className="p-3 rounded-md border border-gray-lightest"
+              className="bg-boring-white dark:bg-boring-black text-boring-black dark:text-boring-white placeholder-boring-black dark:placeholder-boring-white  border border-gray rounded-sm p-2 focus-within:border-blue focus-within:ring-1 focus-within:ring-blue text-xs"
               onChange={(e) => setUsername(e.target.value)}
             />
+            <div className="mt-2">
             <button
               onClick={() => {
                 setChosenUsername(username);
               }}
-              className="relative block w-full rounded-lg text-boring-black dark:text-boring-white p-12 text-center hover:border-gray dark:hover:border-gray focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="float-right mb-2 inline-flex items-center rounded-sm border border-gray dark:border-black text-xs bg-white px-3 py-2 text-boring-black hover:bg-boring-white hover:opacity-70 active:opacity-50 shadow-md active:shadow-sm"
             >
               Go!
             </button>
+            </div>
+            </form>
           </>
         ) : (
           <>
@@ -87,7 +91,7 @@ export default function Home() {
                 {messages.map((msg, i) => {
                   return (
                     <div
-                      className="w-full py-1 px-2 border-b border-gray-lightest"
+                      className="w-full py-1 px-2 border-b border-gray-lightest text-xs"
                       key={i}
                     >
                       {msg.author} : {msg.message}
@@ -100,13 +104,13 @@ export default function Home() {
                   type="text"
                   placeholder="New message..."
                   value={message}
-                  className="outline-none py-2 px-2 rounded-bl-md flex-1"
+                  className="outline-none py-2 px-2 rounded-bl-md flex-1 text-xs"
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyUp={handleKeypress}
                 />
                 <div className="border-l border-gray-lightest flex justify-center items-center  rounded-br-md group hover:bg-purple-500 transition-all">
                   <button
-                    className="group-hover:text-gray px-3 h-full"
+                    className="group-hover:text-gray text-xs px-3 h-full"
                     onClick={() => {
                       sendMessage();
                     }}
